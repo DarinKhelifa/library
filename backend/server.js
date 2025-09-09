@@ -28,7 +28,7 @@ console.log("PORT is", PORT);
 const __dirname = path.resolve();
 
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: "https://library-r49s.onrender.com", credentials: true }));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
