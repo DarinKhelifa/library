@@ -48,7 +48,8 @@ export const useAuthStore = create((set) => ({
     fetchUser: async () => {
         set({ fetchingUser: true , error: null  });    
         try {
-            const response = await axios.get('http://localhost:5000/api/user');
+           const response = await axios.get(`${API_URL}/user`);
+
             const { user } = response.data;
             set({ user, fetchingUser: false });
         } catch (error) {

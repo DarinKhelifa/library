@@ -27,7 +27,10 @@ console.log("PORT is", PORT);
 
 const __dirname = path.resolve();
 
-app.use(cors({ origin: "https://library-32a5.onrender.com", credentials: true }));
+app.use(cors({ 
+  origin: process.env.FRONTEND_URL || "https://library-32a5.onrender.com", 
+  credentials: true 
+}));
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
@@ -316,6 +319,12 @@ if (process.env.NODE_ENV === 'production') {
   }
 )
 }
+
+//Health Check Endpoint
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ message: 'Server is running' });
+});
   
  
  
