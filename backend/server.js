@@ -28,7 +28,7 @@ console.log("PORT is", PORT);
 const __dirname = path.resolve();
 
 app.use(cors({ 
-  origin: process.env.FRONTEND_URL || "https://library-29w0.onrender.com", 
+  origin: process.env.FRONTEND_URL || "https://localhost:5173", 
   credentials: true 
 }));
 app.use(express.json({ limit: '50mb' }));
@@ -89,7 +89,7 @@ app.post('/api/login', async (req, res) => {
     if (!user) {
       return res.status(400).json({ message: "User invalid" });
     }
-    const isPasswordValid = await bcryptjs.compareSync(password, user.password);
+    const isPasswordValid = bcryptjs.compareSync(password, user.password);
     if (!isPasswordValid) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
@@ -312,18 +312,10 @@ app.put('/api/update-book/:id', async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist'))); 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-  });
-}
 
 //Health Check Endpoint
 
-app.get('/api/health', (req, res) => {
-  res.status(200).json({ message: 'Server is running' });
-});
+
   
  
  
