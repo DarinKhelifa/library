@@ -28,7 +28,7 @@ console.log("PORT is", PORT);
 const __dirname = path.resolve();
 
 app.use(cors({ 
-  origin: process.env.FRONTEND_URL || "https://library-0dz2.onrender.com", 
+  origin: process.env.FRONTEND_URL || "https://library-29w0.onrender.com", 
   credentials: true 
 }));
 app.use(express.json({ limit: '50mb' }));
