@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const API_URL = "https://library-32a5.onrender.com/api";
+const API_URL = "https://library-0dz2.onrender.com/api";
 axios.defaults.withCredentials = true;
 
 
