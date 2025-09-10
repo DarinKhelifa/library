@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon backend/server.js",
     "build": "echo 'Build completed'",
-    "start": "node backend/server.js"
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "type": "module",
   "keywords": [],
